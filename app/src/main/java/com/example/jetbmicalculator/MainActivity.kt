@@ -28,11 +28,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Column(horizontalAlignment = Alignment.Start) {
+                    Column(horizontalAlignment = Alignment.Start,
+                    modifier = Modifier.padding(20.dp)) {
                         Text(
                             text = "BMI計算アプリ",
                             fontWeight = FontWeight.ExtraBold,
-                            fontSize = 26.sp
+                            fontSize = 26.sp,
                         )
                     }
                 }
