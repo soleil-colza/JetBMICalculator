@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -47,22 +48,54 @@ class MainActivity : ComponentActivity() {
 
                         Spacer(modifier = Modifier.height(10.dp))
 
-                        TextField(
-                            modifier = Modifier.fillMaxWidth(),
-                            colors = TextFieldDefaults.textFieldColors(
-                                backgroundColor = Color.Transparent,
-                            ),
-                            keyboardOptions = KeyboardOptions.Default.copy(
-                                keyboardType = KeyboardType.Number,
-                            ),
-                            singleLine = true,
+                        //height
+                        PinkLabeledTextField(
                             value = "",
                             onValueChange = {},
-                            placeholder = { Text(text = "170") }
+                            label = "身長(cm)",
+                            placeholder = "170",
+                        )
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        //weight
+
+                        Text(
+                            text = "体重(kg)",
+                            color = Color(0xFFF85F6A),
+                            fontWeight = FontWeight.Bold,
+                        )
+
+                        PinkLabeledTextField(
+                            value = "",
+                            onValueChange = {} ,
+                            label = "体重(kg)",
+                            placeholder = "65",
                         )
                     }
                 }
             }
         }
     }
+}
+
+@Composable
+fun PinkLabeledTextField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    label: String,
+    placeholder: String,
+){
+    TextField(
+        modifier = Modifier.fillMaxWidth(),
+        colors = TextFieldDefaults.textFieldColors(
+            backgroundColor = Color.Transparent,
+        ),
+        keyboardOptions = KeyboardOptions.Default.copy(
+            keyboardType = KeyboardType.Number,
+        ),
+        singleLine = true,
+        value = "",
+        onValueChange = onValueChange,
+        placeholder = { Text(text = placeholder) }
+    )
 }
