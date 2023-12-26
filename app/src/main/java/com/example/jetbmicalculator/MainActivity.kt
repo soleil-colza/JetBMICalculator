@@ -71,6 +71,23 @@ class MainActivity : ComponentActivity() {
                             label = "体重(kg)",
                             placeholder = "65",
                         )
+
+                        Spacer(modifier = Modifier.height(30.dp))
+
+                        Button(
+                            onClick = { /*TODO*/ },
+                            modifier = Modifier.fillMaxWidth(),
+                            colors = ButtonDefaults.buttonColors(
+                                backgroundColor = Color(0xFFF85F6A),
+                            )
+                        ) {
+                            Text(
+                                text = "計算する",
+                                color = Color.White,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 16.sp)
+                        }
+
                     }
                 }
             }
