@@ -10,7 +10,7 @@ import kotlin.math.roundToInt
 class MainViewModel : ViewModel() {
     var height by mutableStateOf("")
     var weight by mutableStateOf("")
-    var bmi by mutableStateOf(0f)
+    var bmi by mutableStateOf(0f) //0fはFloat型の初期値
 
     fun calculateBMI() {
         val heightNumber = height.toFloatOrNull()?.div(100) ?: 0f
