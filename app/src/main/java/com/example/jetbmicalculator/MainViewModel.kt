@@ -15,5 +15,12 @@ class MainViewModel : ViewModel() {
     fun calculateBMI(){
         val heightNumber = height.toFloatOrNull() ?.div(100) ?: 0f
         val weightNumber = weight.toFloatOrNull() ?: 0f
+
+        bmi = if (heightNumber > 0f && weightNumber > 0f){
+            (weightNumber / heightNumber.pow(2) * 10).roundToInt() / 10f
+        }
+        else{
+            0f
+        }
     }
 }
