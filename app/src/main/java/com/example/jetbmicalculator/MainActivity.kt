@@ -23,7 +23,7 @@ import androidx.lifecycle.ViewModel
 import com.example.jetbmicalculator.ui.theme.JetBMICalculatorTheme
 
 class MainActivity : ComponentActivity() {
-    private val viewModel by viewModels<ViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -54,8 +54,8 @@ class MainActivity : ComponentActivity() {
 
                         //height
                         PinkLabeledTextField(
-                            value = "",
-                            onValueChange = {},
+                            value = viewModel.height,
+                            onValueChange = { viewModel.height = it },
                             label = "身長(cm)",
                             placeholder = "170",
                         )
@@ -70,8 +70,8 @@ class MainActivity : ComponentActivity() {
                         )
 
                         PinkLabeledTextField(
-                            value = "",
-                            onValueChange = {} ,
+                            value = viewModel.weight,
+                            onValueChange = { viewModel.weight = it },
                             label = "体重(kg)",
                             placeholder = "65",
                         )
@@ -127,7 +127,7 @@ fun PinkLabeledTextField(
             keyboardType = KeyboardType.Number,
         ),
         singleLine = true,
-        value = "",
+        value = value,
         onValueChange = onValueChange,
         placeholder = { Text(text = placeholder) }
     )
